@@ -17,10 +17,20 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-# from rest_framework import routers
+from rest_framework import routers
 # from climbdit.views import StateViewSet, LocationViewSet, ClimberViewSet, ClimbViewSet
 
 
+from climbdit.views import StateViewSet, LocationViewSet, ClimberViewSet, ClimbViewSet
+
+
+router = routers.DefaultRouter()
+router.register('state', StateViewSet)
+router.register('location', LocationViewSet)
+router.register('climber', ClimberViewSet)
+router.register('climb', ClimbViewSet)
+
+# urlpatterns = router.urls
 
 urlpatterns = [
     path('', include(router.urls)),
