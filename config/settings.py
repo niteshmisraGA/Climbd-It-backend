@@ -39,6 +39,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
   'localhost',
   'climbd-it.herokuapp.com',
+  '127.0.0.1',
 ]
 
 
@@ -92,20 +93,21 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-if IS_PRODUCTION:
   DATABASES = {
       'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
   }
-else:
-  DATABASES = {
-      'default': {
-          'ENGINE': 'django.db.backends.postgresql',
-          'NAME': 'climbdit',
-          'USER': 'climb_admin',
-          'PASSWORD': 'Audib5a4',
-          'HOST': 'localhost',
-      }
-  }
+
+# if IS_PRODUCTION:
+# else:
+#   DATABASES = {
+#       'default': {
+#           'ENGINE': 'django.db.backends.postgresql',
+#           'NAME': 'climbdit',
+#           'USER': 'climb_admin',
+#           'PASSWORD': 'Audib5a4',
+#           'HOST': 'localhost',
+#       }
+#   }
 
 
 
