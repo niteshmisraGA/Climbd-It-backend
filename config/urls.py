@@ -15,16 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
-from climbdit.views import StateViewSet, LocationViewSet, ClimberViewSet, ClimbViewSet
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-router = routers.DefaultRouter()
-router.register('state', StateViewSet)
-router.register('location', LocationViewSet)
-router.register('climber', ClimberViewSet)
-router.register('climb', ClimbViewSet)
+# from rest_framework import routers
+# from climbdit.views import StateViewSet, LocationViewSet, ClimberViewSet, ClimbViewSet
+
+
 
 urlpatterns = [
-    path('', include(router.urls)),
-    # path('admin/', admin.site.urls),
+    path('', include('config.urls')),
+    path('admin/', admin.site.urls),
+    path('login/', TokenObtainPairView.as_view()),
+    path('refresh-token', TokenRefreshView.as_view()),
 ]
