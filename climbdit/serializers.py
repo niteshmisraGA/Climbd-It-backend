@@ -5,7 +5,7 @@ class StateSerializer(serializers.ModelSerializer):
     locations = serializers.StringRelatedField(many=True)
     class Meta:
         model = State
-        fields = ['stateName', 'locations']
+        fields = ['stateName', 'locations', 'id']
 
 class LocationSerializer(serializers.ModelSerializer):
     climbs = serializers.StringRelatedField(many=True)
