@@ -18,7 +18,7 @@ class State(models.Model):
 class Location(models.Model):
     locationName = models.CharField(max_length=128)
     stateName = models.ForeignKey(
-        State, on_delete=models.CASCADE, related_name='locations', blank=True, null=True)
+        State, on_delete=models.CASCADE, related_name='locations', blank=True, null=True, db_constraint=False)
 
     def __str__(self):
         return self.locationName
