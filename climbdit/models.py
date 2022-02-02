@@ -1,4 +1,5 @@
 from django.db import models
+django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -10,7 +11,6 @@ class Climber(models.Model):
 
 class State(models.Model):
     stateName = models.CharField(max_length=16)
-
     def __str__(self):
         return self.stateName
 

@@ -29,5 +29,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('login/', TokenObtainPairView.as_view()),
-    path('refresh-token', TokenRefreshView.as_view()),
+    path('refresh-token/', TokenRefreshView.as_view()),
 ]
